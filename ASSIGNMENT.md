@@ -51,7 +51,7 @@ The application contains vulnerabilities in the following categories:
 **Testing methodology:**
 
 - What tools were used (manual inspection, automated scanners, dynamic testing, etc.).
-- How each security requirement (R1–R7) was systematically tested.
+- How each security requirement was systematically tested.
 
 ---
 
