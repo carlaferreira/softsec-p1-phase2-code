@@ -4,7 +4,7 @@
 
 The Expense Reimbursement Platform is a Node.js REST API that lets employees submit expense requests, managers approve them within their department, and finance admins oversee the entire system. It was built under deadline pressure and ships with several security vulnerabilities. Your job is to find them, exploit them, fix them, and document everything.
 
-**This is not a reference implementation.** A hardened version will be discussed in class after submission.
+**This is not a reference implementation.**
 
 ---
 
