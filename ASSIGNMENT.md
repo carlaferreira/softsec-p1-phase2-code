@@ -17,11 +17,11 @@ You must identify and exploit **at least 5 vulnerabilities** in the application.
 3. **Fix** it: modify the source code to eliminate the vulnerability without breaking the application's intended behaviour.
 4. **Document** it in the report PDF (one entry per vulnerability, format described below).
 
-The vulnerabilities span a range of difficulty. A careful systematic audit (code review plus basic dynamic testing) is required to find all five.
+The vulnerabilities span a range of difficulty. A careful, systematic audit (code review plus basic dynamic testing) is required to find all five.
 
 ### What to look for
 
-The application contains vulnerabilities in the following categories — you must find instances of each:
+The application contains vulnerabilities in the following categories:
 
 - Sensitive data written to application logs
 - Sensitive data returned in API responses that should never leave the server
@@ -34,11 +34,11 @@ The application contains vulnerabilities in the following categories — you mus
 
 One entry per vulnerability:
 
-- **Vulnerability:** name or CWE
-- **Location:** file and line(s)
-- **Description:** what the bug is and why it is dangerous
-- **Exploit:** the exact command or code that demonstrates the attack, and the output it produces
-- **Fix:** what you changed and why it eliminates the vulnerability
+- **Vulnerability:** Name or CWE
+- **Location:** File and line(s)
+- **Description:** What the bug is and why it is dangerous
+- **Exploit:** The exact command or code that demonstrates the attack, and the output it produces
+- **Fix:** What you changed and why it eliminates the vulnerability
 
 ---
 
@@ -46,10 +46,10 @@ One entry per vulnerability:
 
 After fixing the vulnerabilities you found, implement the following defensive measures:
 
-1. **Input validation on registration** — enforce server-side constraints on all user-supplied fields during account creation. Document which fields you validate and what rules you apply.
-2. **Parameterised queries everywhere** — audit the full codebase and ensure no SQL statement is assembled by string concatenation. If you find additional unsafe queries beyond the one in Part 1, document them.
-3. **Safe error handling** — update the global error handler so that no internal implementation detail (stack trace, file path, query text) is ever returned to the client. Internal errors must still be logged server-side.
-4. **Security report** — include a section in the PDF summarising all changes made in Parts 1 and 2, the threat each change addresses, and any residual risks you were unable to resolve within the scope of this assignment.
+1. **Input validation on registration** — Enforce server-side constraints on all user-supplied fields **during account creation**. Document which fields you validate and what rules you apply.
+2. **Parameterised queries everywhere** — Audit the full codebase and ensure no SQL statement is assembled by string concatenation. If you find additional unsafe queries beyond the one in Part 1, document them.
+3. **Safe error handling** — Update the global error handler so that no internal implementation detail (stack trace, file path, query text) is ever returned to the client. Internal errors must still be logged on the server side.
+4. **Security report** — Include a section in the PDF summarising all changes made in Parts 1 and 2, the threat each change addresses, and any residual risks you were unable to resolve within the scope of this assignment.
 
 ---
 
@@ -57,10 +57,10 @@ After fixing the vulnerabilities you found, implement the following defensive me
 
 - **Runtime:** Node.js 20+. Run `npm install` then `npm start` to launch the server on port 3000.
 - **Seeding:** Run `npm run seed` to populate the database with test users and sample expenses before testing.
-- **Test users:** credentials are listed in `README.md`. Use them to test different roles (employee, manager, finance\_admin).
+- **Test users:** Credentials are listed in `README.md`. Use them to test different roles (employee, manager, finance\_admin).
 - **No new dependencies** may be added to `package.json` for Part 1. Part 2 fixes may use standard Node.js APIs and packages already present.
 - **All fixes must preserve correct behaviour** — the application must still handle legitimate requests for all three roles correctly after your changes.
-- **Submission:** accept the GitHub Classroom assignment at <https://classroom.github.com/a/oKTHZVXJ>. This creates a private repository with the starter code under the course organisation; push all your work there. Use signed commits (`git config commit.gpgsign true`). Tag the commit that completes Part 1 as `part1-done` and the final commit as `final`. The last commit pushed before the deadline is what gets graded — no separate Moodle upload is required.
+- **Submission:** accept the GitHub Classroom assignment at <https://classroom.github.com/a/oKTHZVXJ>. This creates a private repository with the starter code under the course organisation; push all your work there. Use signed commits (`git config commit.gpgsign true`). Tag the commit that completes Part 1 as `part1-done` and the final commit as `final`. The last commit pushed before the deadline is the one that gets graded.
 
 ---
 
