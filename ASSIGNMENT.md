@@ -80,13 +80,13 @@ The application contains vulnerabilities in the following categories:
 | Component | Points |
 |---|---|
 | Each vulnerability correctly identified, exploited, and fixed (×5) | 10 pts each (50 total) |
-| `report.pdf` — per-vulnerability documentation quality | 20 pts |
-| Overall security assessment | 30 pts |
+| `report.pdf` — per-vulnerability documentation quality | 30 pts |
+| Overall security assessment | 20 pts |
 
 ---
 
 ## Notes
 
 - Do not spend time looking for issues in dependencies or the OS.
-- You are encouraged to use tools seen in the labs (ZAP, curl, static analysis) but all findings must be explained in your own words.
+- You are encouraged to use tools seen in the labs (ZAP, curl, static analysis), but all findings must be explained in your own words.
 - Fixes that use `// eslint-disable` comments, environment flags, or any other bypass mechanism to silence warnings without addressing the root cause will receive no credit.
