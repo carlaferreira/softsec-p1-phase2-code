@@ -1,0 +1,6 @@
+node_modules/
+src/config/app.db
+src/config/app.db-*
+FLAGS-CONFIDENTIAL.md
+.env
+.DS_Store

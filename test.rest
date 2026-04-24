@@ -1,0 +1,56 @@
+### Health
+GET http://localhost:3000/api/health
+
+### Login — employee
+# @name loginDiego
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{"username":"emp_diego","password":"diego123"}
+
+### Login — manager
+# @name loginBruno
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{"username":"mgr_bruno","password":"bruno123"}
+
+### Login — finance admin
+# @name loginAlice
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{"username":"admin_alice","password":"alice123"}
+
+### My profile
+GET http://localhost:3000/api/users/me
+Authorization: Bearer {{loginDiego.response.body.token}}
+
+### Update preferences (normal)
+PATCH http://localhost:3000/api/users/me/preferences
+Authorization: Bearer {{loginDiego.response.body.token}}
+Content-Type: application/json
+
+{"preferences":{"notifications":{"email":true}}}
+
+### Submit small expense (auto-approved)
+POST http://localhost:3000/api/expenses
+Authorization: Bearer {{loginDiego.response.body.token}}
+Content-Type: application/json
+
+{"category":"meals","amount":42.50,"description":"Team lunch"}
+
+### Submit medium expense (pending manager approval)
+POST http://localhost:3000/api/expenses
+Authorization: Bearer {{loginDiego.response.body.token}}
+Content-Type: application/json
+
+{"category":"equipment","amount":750,"description":"Monitor"}
+
+### List my expenses
+GET http://localhost:3000/api/expenses
+Authorization: Bearer {{loginDiego.response.body.token}}
+
+### Audit log (finance_admin)
+GET http://localhost:3000/api/audit?limit=50
+Authorization: Bearer {{loginAlice.response.body.token}}
