@@ -37,11 +37,6 @@ export async function updateProfile(req, res, next) {
   } catch (err) { next(err); }
 }
 
-/**
- * Merge a nested partial object into target. Used for user preferences so a
- * client can update `{ notifications: { email: true } }` without clobbering
- * sibling keys like `notifications.slack`.
- */
 function deepMerge(target, source) {
   for (const key in source) {
     const val = source[key];
