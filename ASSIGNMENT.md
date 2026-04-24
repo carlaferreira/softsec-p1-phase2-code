@@ -8,7 +8,7 @@ The Expense Reimbursement Platform is a Node.js REST API that lets employees sub
 
 ---
 
-## Part 1 — Security Audit (60 points)
+## Security Audit
 
 You must identify and exploit **at least 5 vulnerabilities** in the application. For each vulnerability found:
 
@@ -30,26 +30,28 @@ The application contains vulnerabilities in the following categories:
 - Information leakage in error responses
 - Observable differences between server responses that reveal private data
 
-### Report format (Part 1 section)
+### Report format
 
-One entry per vulnerability:
+**Per vulnerability** (5 entries):
 
-- **Vulnerability:** Name or CWE
+- **Vulnerability:** Name and CWE identifier
+- **OWASP Top 10:** Category (e.g. A03 — Injection)
+- **Security requirement:** Affected requirement (R1–R7)
+- **Severity:** High / Medium / Low with justification
 - **Location:** File and line(s)
 - **Description:** What the bug is and why it is dangerous
 - **Exploit:** The exact command or code that demonstrates the attack, and the output it produces
-- **Fix:** What you changed and why it eliminates the vulnerability
+- **Fix:** What you changed in the source code and why it eliminates the vulnerability
 
----
+**Overall security assessment:**
 
-## Part 2 — Hardening and Defence (40 points)
+- Summary of the application's security posture: what was done well and what was neglected.
+- Analysis of whether the application follows defence-in-depth principles or relies on single points of failure.
 
-After fixing the vulnerabilities you found, implement the following defensive measures:
+**Testing methodology:**
 
-1. **Input validation on registration** — Enforce server-side constraints on all user-supplied fields **during account creation**. Document which fields you validate and what rules you apply.
-2. **Parameterised queries everywhere** — Audit the full codebase and ensure no SQL statement is assembled by string concatenation. If you find additional unsafe queries beyond the one in Part 1, document them.
-3. **Safe error handling** — Update the global error handler so that no internal implementation detail (stack trace, file path, query text) is ever returned to the client. Internal errors must still be logged on the server side.
-4. **Security report** — Include a section in the PDF summarising all changes made in Parts 1 and 2, the threat each change addresses, and any residual risks you were unable to resolve within the scope of this assignment.
+- What tools were used (manual inspection, automated scanners, dynamic testing, etc.).
+- How each security requirement (R1–R7) was systematically tested.
 
 ---
 
@@ -58,9 +60,8 @@ After fixing the vulnerabilities you found, implement the following defensive me
 - **Runtime:** Node.js 20+. Run `npm install` then `npm start` to launch the server on port 3000.
 - **Seeding:** Run `npm run seed` to populate the database with test users and sample expenses before testing.
 - **Test users:** Credentials are listed in `README.md`. Use them to test different roles (employee, manager, finance\_admin).
-- **No new dependencies** may be added to `package.json` for Part 1. Part 2 fixes may use standard Node.js APIs and packages already present.
 - **All fixes must preserve correct behaviour** — the application must still handle legitimate requests for all three roles correctly after your changes.
-- **Submission:** accept the GitHub Classroom assignment at <https://classroom.github.com/a/oKTHZVXJ>. This creates a private repository with the starter code under the course organisation; push all your work there. Use signed commits (`git config commit.gpgsign true`). Tag the commit that completes Part 1 as `part1-done` and the final commit as `final`. The last commit pushed before the deadline is the one that gets graded.
+- **Submission:** accept the GitHub Classroom assignment at <https://classroom.github.com/a/oKTHZVXJ>. This creates a private repository with the starter code under the course organisation; push all your work there. The last commit pushed before the deadline is the one that gets graded.
 
 ---
 
@@ -68,8 +69,8 @@ After fixing the vulnerabilities you found, implement the following defensive me
 
 | Deliverable | Description |
 |---|---|
-| `report.pdf` | Vulnerability entries (Part 1) + security report (Part 2) |
-| Modified source files | All fixes committed with descriptive commit messages |
+| `report.pdf` | Security audit report (5–8 pages) |
+| Modified source files | All implemented fixes committed with descriptive commit messages |
 | Git tags `part1-done` and `final` | Mark completion milestones |
 
 ---
@@ -79,9 +80,8 @@ After fixing the vulnerabilities you found, implement the following defensive me
 | Component | Points |
 |---|---|
 | Each vulnerability correctly identified, exploited, and fixed (×5) | 10 pts each (50 total) |
-| `report.pdf` — Part 1 quality and completeness | 10 pts |
-| Part 2 hardening implementation | 30 pts |
-| `report.pdf` — Part 2 security report | 10 pts |
+| `report.pdf` — per-vulnerability documentation quality | 20 pts |
+| Overall security assessment | 30 pts |
 
 ---
 
