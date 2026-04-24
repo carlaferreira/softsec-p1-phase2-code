@@ -15,7 +15,7 @@ You must identify and exploit **at least 5 vulnerabilities** in the application.
 1. **Identify** the vulnerability type, the file, and the line(s) where it occurs.
 2. **Exploit** it: write a working proof-of-concept that demonstrates the attack. A `curl` command, a short script, or server output showing the impact is sufficient.
 3. **Fix** it: modify the source code to eliminate the vulnerability without breaking the application's intended behaviour.
-4. **Document** it in `bugs.txt` (one entry per vulnerability, format described below).
+4. **Document** it in the report PDF (one entry per vulnerability, format described below).
 
 The vulnerabilities span a range of difficulty. A careful systematic audit (code review plus basic dynamic testing) is required to find all five.
 
@@ -30,18 +30,15 @@ The application contains vulnerabilities in the following categories — you mus
 - Information leakage in error responses
 - Observable differences between server responses that reveal private data
 
-### `bugs.txt` format
+### Report format (Part 1 section)
 
-One entry per vulnerability, separated by `---`:
+One entry per vulnerability:
 
-```
-Vulnerability: <name or CWE>
-Location: <file>:<line(s)>
-Description: <what the bug is and why it is dangerous>
-Exploit: <the exact command or code that demonstrates the attack, and the output it produces>
-Fix: <what you changed and why it eliminates the vulnerability>
----
-```
+- **Vulnerability:** name or CWE
+- **Location:** file and line(s)
+- **Description:** what the bug is and why it is dangerous
+- **Exploit:** the exact command or code that demonstrates the attack, and the output it produces
+- **Fix:** what you changed and why it eliminates the vulnerability
 
 ---
 
@@ -52,7 +49,7 @@ After fixing the vulnerabilities you found, implement the following defensive me
 1. **Input validation on registration** — enforce server-side constraints on all user-supplied fields during account creation. Document which fields you validate and what rules you apply.
 2. **Parameterised queries everywhere** — audit the full codebase and ensure no SQL statement is assembled by string concatenation. If you find additional unsafe queries beyond the one in Part 1, document them.
 3. **Safe error handling** — update the global error handler so that no internal implementation detail (stack trace, file path, query text) is ever returned to the client. Internal errors must still be logged server-side.
-4. **Security report** — write `security_report.txt` summarising all changes made in Parts 1 and 2, the threat each change addresses, and any residual risks you were unable to resolve within the scope of this assignment.
+4. **Security report** — include a section in the PDF summarising all changes made in Parts 1 and 2, the threat each change addresses, and any residual risks you were unable to resolve within the scope of this assignment.
 
 ---
 
@@ -69,10 +66,9 @@ After fixing the vulnerabilities you found, implement the following defensive me
 
 ## Deliverables
 
-| File | Description |
+| Deliverable | Description |
 |---|---|
-| `bugs.txt` | One entry per vulnerability found (Part 1) |
-| `security_report.txt` | Summary of all defensive changes and residual risks (Part 2) |
+| `report.pdf` | Vulnerability entries (Part 1) + security report (Part 2) |
 | Modified source files | All fixes committed with descriptive commit messages |
 | Git tags `part1-done` and `final` | Mark completion milestones |
 
@@ -83,9 +79,9 @@ After fixing the vulnerabilities you found, implement the following defensive me
 | Component | Points |
 |---|---|
 | Each vulnerability correctly identified, exploited, and fixed (×5) | 10 pts each (50 total) |
-| `bugs.txt` quality and completeness | 10 pts |
+| `report.pdf` — Part 1 quality and completeness | 10 pts |
 | Part 2 hardening implementation | 30 pts |
-| `security_report.txt` | 10 pts |
+| `report.pdf` — Part 2 security report | 10 pts |
 
 ---
 
