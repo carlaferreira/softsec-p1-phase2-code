@@ -87,6 +87,6 @@ After fixing the vulnerabilities you found, implement the following defensive me
 
 ## Notes
 
-- The application intentionally contains only these vulnerabilities; do not spend time looking for issues in dependencies or the OS.
+- Do not spend time looking for issues in dependencies or the OS.
 - You are encouraged to use tools seen in the labs (ZAP, curl, static analysis) but all findings must be explained in your own words.
 - Fixes that use `// eslint-disable` comments, environment flags, or any other bypass mechanism to silence warnings without addressing the root cause will receive no credit.
