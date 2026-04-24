@@ -3,9 +3,7 @@ import { audit } from '../utils/audit.js';
 import { validateExpenseInput } from '../utils/validate.js';
 
 /**
- * Compute the approval policy for a given amount. Returned object is plain
- * (`{}`) so callers can destructure conveniently; only the flags this function
- * sets are considered populated.
+ * Compute the approval policy for a given amount. 
  */
 function getApprovalPolicy(amount) {
   const autoThreshold = Number(process.env.AUTO_APPROVE_THRESHOLD ?? 500);
@@ -45,8 +43,7 @@ export async function createExpense(req, res, next) {
 
 /**
  * Free-text search over the current user's expenses. Supports partial matches
- * on description and category. Kept as a LIKE query for flexibility so users
- * can search e.g. "trip" or "Berlin" from any client.
+ * on description and category.
  */
 export function searchExpenses(req, res, next) {
   const q = req.query.q ?? '';
